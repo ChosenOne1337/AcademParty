@@ -17,69 +17,93 @@
         android:id="@+id/party_name_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/party_image_2"
+
+        android:layout_toEndOf="@+id/party_image_2"
+        android:layout_marginStart="13dp"
+
         android:layout_alignTop="@+id/party_image_2"
-        android:layout_marginStart="135dp"
+
         android:text="@string/party_name" />
 
     <TextView
         android:id="@+id/party_real_name_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/party_name_2"
+
+        android:layout_toEndOf="@+id/party_name_2"
+        android:layout_marginStart="5dp"
+
         android:layout_alignTop="@+id/party_image_2"
-        android:layout_marginStart="72dp"
+        android:maxLines="1"
+
         android:text="example1" />
 
     <TextView
         android:id="@+id/party_place_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/party_image_2"
-        android:layout_alignTop="@+id/party_name_2"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="28dp"
+
+        android:layout_toEndOf="@+id/party_image_2"
+        android:layout_marginStart="13dp"
+
+        android:layout_below="@+id/party_name_2"
+        android:layout_marginTop="5dp"
+
         android:text="@string/party_place" />
 
     <TextView
         android:id="@+id/party_real_place_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/party_place_2"
-        android:layout_alignTop="@+id/party_name_2"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
+
+        android:layout_toEndOf="@+id/party_name_2"
+        android:layout_marginStart="5dp"
+
+        android:layout_below="@+id/party_name_2"
+        android:layout_marginTop="5dp"
+
+        android:maxLines="1"
+
         android:text="example2" />
 
     <TextView
         android:id="@+id/party_time_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/party_image_2"
-        android:layout_alignTop="@+id/party_place_2"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="28dp"
+
+        android:layout_toEndOf="@+id/party_image_2"
+        android:layout_marginStart="13dp"
+
+        android:layout_below="@+id/party_place_2"
+        android:layout_marginTop="5dp"
+
         android:text="@string/party_time" />
 
     <TextView
         android:id="@+id/party_real_time_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/party_time_2"
-        android:layout_alignTop="@+id/party_place_2"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
+
+        android:layout_toEndOf="@+id/party_time_2"
+        android:layout_marginStart="5dp"
+
+        android:layout_below="@+id/party_place_2"
+        android:layout_marginTop="5dp"
+
+        android:maxLines="1"
+
         android:text="example3" />
 
     <Button
         android:id="@+id/view_button"
         android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_alignStart="@+id/party_image_2"
+        android:layout_height="40dp"
+
         android:layout_alignBottom="@+id/party_image_2"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="2dp"
+
         android:layout_toEndOf="@+id/party_image_2"
-        android:text="Посмотреть" />
+        android:layout_marginStart="13dp"
+
+        android:text="Подробнее" />
 
 </RelativeLayout>
