@@ -1,5 +1,6 @@
 package ru.ftc.android.shifttemple.features.parties.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,7 +49,8 @@ public final class PartiesActivity extends BaseActivity implements PartyListView
         addPartyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onAddPartyClicked();
+                Intent intent = new Intent(PartiesActivity.this, PartyInfoActivity.class);
+                startActivity(intent);
             }
         });
 

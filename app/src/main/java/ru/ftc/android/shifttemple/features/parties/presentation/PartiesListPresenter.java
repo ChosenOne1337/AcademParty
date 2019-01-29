@@ -1,5 +1,8 @@
 package ru.ftc.android.shifttemple.features.parties.presentation;
 
+import android.content.Intent;
+import android.view.View;
+
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -64,9 +67,5 @@ final class PartiesListPresenter extends MvpPresenter<PartyListView> {
             }
 
         });
-    }
-
-    public void onAddPartyClicked() {
-        // do nothing
     }
 }

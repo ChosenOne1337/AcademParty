@@ -21,3 +21,4 @@ interface PartyListView extends MvpView {
     void showError(String message);
 
 }
+
