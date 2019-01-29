@@ -46,8 +46,9 @@ final class PartiesListPresenter extends MvpPresenter<PartyListView> {
         });
     }
 
-    void onBookSelected(Party party) {
+    public void onPartySelected(Party party) {
         view.showProgress();
+        // get actual party information
         interactor.loadParty(party.getId(), new Carry<Party>() {
 
             @Override
@@ -65,9 +66,7 @@ final class PartiesListPresenter extends MvpPresenter<PartyListView> {
         });
     }
 
-    private final AtomicInteger atomicInteger = new AtomicInteger();
-
     public void onAddPartyClicked() {
-
+        // do nothing
     }
 }

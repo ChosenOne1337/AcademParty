@@ -7,8 +7,10 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PATCH;
 import retrofit2.http.Path;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
+import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
 
 /**
@@ -30,5 +32,11 @@ public interface PartiesApi {
 
     @DELETE("parties/{id}")
     Call<Success> deleteParty(@Path("id") String id);
+
+    @PATCH("parties/addperson/{id}")
+    Call<Party> addPerson(@Path("id") String id, @Body Person person);
+
+    @PATCH("parties/{id}")
+    Call<Party> editParty(@Path("id") String id, @Body Party party);
 
 }

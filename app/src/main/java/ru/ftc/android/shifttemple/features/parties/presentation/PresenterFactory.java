@@ -20,7 +20,7 @@ import ru.ftc.android.shifttemple.features.parties.presentation.PartiesListPrese
 
 final class PresenterFactory {
 
-    static PartiesListPresenter createPresenter(Context context) {
+    static PartiesListPresenter createPartiesListPresenter(Context context) {
         final PartiesApi api = App.getRetrofitProvider(context)
                 .getRetrofit()
                 .create(PartiesApi.class);
