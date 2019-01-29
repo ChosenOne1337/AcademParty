@@ -11,6 +11,7 @@ import ru.ftc.android.shifttemple.features.parties.data.PartiesRepositoryImpl;
 import ru.ftc.android.shifttemple.features.parties.domain.PartiesInteractor;
 import ru.ftc.android.shifttemple.features.parties.domain.PartiesInteractorImpl;
 import ru.ftc.android.shifttemple.features.parties.presentation.PartiesListPresenter;
+import ru.ftc.android.shifttemple.features.parties.presentation.PartyInfoPresenter;
 
 /**
  * Created: samokryl
@@ -30,6 +31,18 @@ final class PresenterFactory {
         final PartiesInteractor interactor = new PartiesInteractorImpl(repository);
 
         return new PartiesListPresenter(interactor);
+    }
+
+    static PartyInfoPresenter createPartyInfoPresenter(Context context) {
+        final PartiesApi api = App.getRetrofitProvider(context)
+                .getRetrofit()
+                .create(PartiesApi.class);
+
+        final PartiesDataSource dataSource = new PartiesDataSourceImpl(api);
+        final PartiesRepository repository = new PartiesRepositoryImpl(dataSource);
+        final PartiesInteractor interactor = new PartiesInteractorImpl(repository);
+
+        return new PartyInfoPresenter(interactor);
     }
 
 }
