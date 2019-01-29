@@ -10,10 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Date: 01.07.18
  * Time: 22:32
  */
-
 public final class RetrofitProvider {
 
-    private static final String BASE_URL = "http://10.9.54.3:8081/api/v001/";
+    private static final String BASE_URL = "http://192.168.88.218:8081/api/v001/";
 
     private final Retrofit retrofit;
 

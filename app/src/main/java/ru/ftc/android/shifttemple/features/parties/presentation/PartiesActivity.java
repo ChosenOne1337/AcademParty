@@ -55,7 +55,7 @@ public final class PartiesActivity extends BaseActivity implements PartyListView
         adapter = new PartyAdapter(this, new PartyListener() {
             @Override
             public void onPartyButtonClick(Party party) {
-                presenter.onBookSelected(party);
+                presenter.onPartySelected(party);
             }
         });
 
@@ -87,7 +87,7 @@ public final class PartiesActivity extends BaseActivity implements PartyListView
 
     @Override
     protected MvpPresenter<PartyListView> getPresenter() {
-        presenter = PresenterFactory.createPresenter(this);
+        presenter = PresenterFactory.createPartiesListPresenter(this);
         return presenter;
     }
 

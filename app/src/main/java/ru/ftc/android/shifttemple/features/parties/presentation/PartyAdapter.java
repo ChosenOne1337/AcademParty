@@ -3,11 +3,15 @@ package ru.ftc.android.shifttemple.features.parties.presentation;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +63,7 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
         private final TextView partyNameView;
         private final TextView partyDateView;
         private final TextView partyPlaceView;
+        private final ImageView partyImageView;
 
         private final Button showPartyInformationButton;
 
@@ -69,17 +74,24 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
 
             this.partyListener = partyListener;
 
-            partyNameView = view.findViewById(R.id.party_name_2);
-            partyPlaceView = view.findViewById(R.id.party_place_2);
-            partyDateView = view.findViewById(R.id.party_time_2);
+            partyNameView = view.findViewById(R.id.party_real_name_2);
+            partyPlaceView = view.findViewById(R.id.party_real_place_2);
+            partyDateView = view.findViewById(R.id.party_real_time_2);
+
+            partyImageView = view.findViewById(R.id.party_image_2);
+
+            partyNameView.setSelected(true);
+            partyPlaceView.setSelected(true);
+
+            Picasso.get().load("https://pp.userapi.com/c831309/v831309065/1019d7/RBrSnJ2twhY.jpg").resize(120, 120).into(partyImageView);
 
             showPartyInformationButton = view.findViewById(R.id.view_button);
         }
 
         void bind(final Party party) {
             partyNameView.setText(party.getName());
-            partyPlaceView.setText(party.getName());
-            partyDateView.setText(party.getName());
+            partyPlaceView.setText(party.getPlace());
+            partyDateView.setText(party.getDate());
 
             showPartyInformationButton.setOnClickListener(new View.OnClickListener() {
                 @Override

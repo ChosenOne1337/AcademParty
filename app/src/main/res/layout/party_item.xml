@@ -33,8 +33,12 @@
         android:layout_toEndOf="@+id/party_name_2"
         android:layout_marginStart="5dp"
 
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+
         android:layout_alignTop="@+id/party_image_2"
-        android:maxLines="1"
 
         android:text="example1" />
 
@@ -56,13 +60,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_toEndOf="@+id/party_name_2"
+        android:layout_toEndOf="@+id/party_place_2"
         android:layout_marginStart="5dp"
 
         android:layout_below="@+id/party_name_2"
         android:layout_marginTop="5dp"
 
-        android:maxLines="1"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
 
         android:text="example2" />
 
@@ -89,8 +96,6 @@
 
         android:layout_below="@+id/party_place_2"
         android:layout_marginTop="5dp"
-
-        android:maxLines="1"
 
         android:text="example3" />
 
