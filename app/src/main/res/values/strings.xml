@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AcademParty</string>
+    <string name="create_button">Создать</string>
+    <string name="add_party">Добавить</string>
+    <string name="party_name">Название:</string>
+    <string name="party_place">Место:</string>
+    <string name="party_time">Время:</string>
+    <string name="party_manager">Организатор:</string>
+    <string name="party_members">Участники:</string>
+    <string name="Description">Описание</string>
+</resources>

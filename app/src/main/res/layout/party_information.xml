@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/Scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:id="@+id/RLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/party_image"
+                android:layout_width="wrap_content"
+                android:layout_height="177dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/party_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_image"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/party_name" />
+
+            <TextView
+                android:id="@+id/party_real_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_image"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/party_name"
+                android:text="example1" />
+
+            <TextView
+                android:id="@+id/party_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_name"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/party_place" />
+
+            <TextView
+                android:id="@+id/party_real_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_name"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/party_place"
+                android:text="example2" />
+
+            <TextView
+                android:id="@+id/party_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_place"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/party_time" />
+
+            <TextView
+                android:id="@+id/party_real_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_place"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/party_time"
+                android:text="example3" />
+
+            <TextView
+                android:id="@+id/party_manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_time"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/party_manager" />
+
+            <TextView
+                android:id="@+id/party_real_manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_time"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/party_manager"
+                android:text="example3" />
+
+            <TextView
+                android:id="@+id/party_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_manager"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:shadowColor="#00ff00"
+                android:shadowRadius="3"
+                android:text="@string/Description"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/party_real_description"
+                android:layout_width="221dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/party_description"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="example4" />
+
+            <TextView
+                android:id="@+id/party_members"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_real_description"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/party_members"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_members"
+                android:layout_centerHorizontal="true"
+                android:text="\"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/party_real_members"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_members"
+                android:layout_toStartOf="@+id/separator"
+                android:text="04"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/party_static_members"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/party_members"
+                android:layout_toEndOf="@+id/separator"
+                android:text="50"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_below="@+id/separator"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+    </RelativeLayout>
