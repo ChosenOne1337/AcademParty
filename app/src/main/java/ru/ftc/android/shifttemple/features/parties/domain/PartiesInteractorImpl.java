@@ -4,6 +4,7 @@ import java.util.List;
 
 import ru.ftc.android.shifttemple.features.parties.data.PartiesRepository;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
+import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
 import ru.ftc.android.shifttemple.network.Carry;
 
@@ -39,5 +40,15 @@ public final class PartiesInteractorImpl implements PartiesInteractor {
     @Override
     public void deleteParty(String id, Carry<Success> carry) {
         repository.deleteParty(id, carry);
+    }
+
+    @Override
+    public void addPerson(String id, Person person, Carry<Party> carry) {
+        repository.addPerson(id, person, carry);
+    }
+
+    @Override
+    public void editParty(String id, Party party, Carry<Party> carry) {
+        repository.editParty(id, party, carry);
     }
 }

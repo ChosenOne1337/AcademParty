@@ -3,6 +3,7 @@ package ru.ftc.android.shifttemple.features.parties.data;
 import java.util.List;
 
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
+import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
 import ru.ftc.android.shifttemple.network.Carry;
 
@@ -38,5 +39,15 @@ public final class PartiesRepositoryImpl implements PartiesRepository {
     @Override
     public void deleteParty(String id, Carry<Success> carry) {
         dataSource.deleteParty(id, carry);
+    }
+
+    @Override
+    public void addPerson(String id, Person person, Carry<Party> carry) {
+        dataSource.addPerson(id, person, carry);
+    }
+
+    @Override
+    public void editParty(String id, Party party, Carry<Party> carry) {
+        dataSource.editParty(id, party, carry);
     }
 }

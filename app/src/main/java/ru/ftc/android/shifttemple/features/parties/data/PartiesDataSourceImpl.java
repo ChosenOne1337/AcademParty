@@ -3,6 +3,7 @@ package ru.ftc.android.shifttemple.features.parties.data;
 import java.util.List;
 
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
+import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
 import ru.ftc.android.shifttemple.network.Carry;
 import ru.ftc.android.shifttemple.network.DefaultCallback;
@@ -39,5 +40,15 @@ public final class PartiesDataSourceImpl implements PartiesDataSource {
     @Override
     public void deleteParty(String id, Carry<Success> carry) {
         partiesApi.deleteParty(id).enqueue(new DefaultCallback(carry));
+    }
+
+    @Override
+    public void addPerson(String id, Person person, Carry<Party> carry) {
+        partiesApi.addPerson(id, person).enqueue(new DefaultCallback(carry));
+    }
+
+    @Override
+    public void editParty(String id, Party party, Carry<Party> carry) {
+        partiesApi.editParty(id, party).enqueue(new DefaultCallback(carry));
     }
 }
