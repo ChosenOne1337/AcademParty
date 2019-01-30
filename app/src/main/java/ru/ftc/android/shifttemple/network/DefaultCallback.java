@@ -3,8 +3,7 @@ package ru.ftc.android.shifttemple.network;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ru.ftc.android.shifttemple.exception.BadRequestException;
-import ru.ftc.android.shifttemple.exception.EmptyBodyException;
+import ru.ftc.android.shifttemple.exception.FailedRequestException;
 
 /**
  * Created: samokryl
@@ -27,7 +26,7 @@ public final class DefaultCallback<T> implements Callback<T> {
         if (data != null) {
             carry.onSuccess(data);
         } else {
-            carry.onFailure(new BadRequestException(response.message()));
+            carry.onFailure(new FailedRequestException(response.message()));
         }
     }
 
