@@ -16,8 +16,8 @@ public final class Party {
     private String date = "";
     private String pictureUrl = "";
     private String description = "";
-    private int maxPersons = 0;
-    private int currentPersons = 0;
+    private Integer maxPersons = 0;
+    private Integer currentPersons = 0;
     private List<Person> participants = null;
 
     public String getId() {
@@ -83,20 +83,20 @@ public final class Party {
     }
 
 
-    public int getMaxPersons() {
+    public Integer getMaxPersons() {
         return maxPersons;
     }
 
-    public void setMaxPersons(int maxPersons) {
+    public void setMaxPersons(Integer maxPersons) {
         this.maxPersons = maxPersons;
     }
 
 
-    public int getCurrentPersons() {
+    public Integer getCurrentPersons() {
         return currentPersons;
     }
 
-    public void setCurrentPersons(int currentPersons) {
+    public void setCurrentPersons(Integer currentPersons) {
         this.currentPersons = currentPersons;
     }
 
