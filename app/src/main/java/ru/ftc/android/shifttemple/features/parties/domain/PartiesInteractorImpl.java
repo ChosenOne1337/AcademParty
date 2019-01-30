@@ -43,13 +43,13 @@ public final class PartiesInteractorImpl implements PartiesInteractor {
     }
 
     @Override
-    public void addPerson(String id, Person person, Carry<Party> carry) {
-        repository.addPerson(id, person, carry);
+    public void addPerson(String partyId, Person person, Carry<Party> carry) {
+        repository.addPerson(partyId, person, carry);
     }
 
     @Override
-    public void deletePerson(String partyId, String personId, Carry<Party> carry) {
-        repository.deletePerson(partyId, personId, carry);
+    public void deletePerson(String partyId, Person person, Carry<Party> carry) {
+        repository.deletePerson(partyId, person, carry);
     }
 
     @Override

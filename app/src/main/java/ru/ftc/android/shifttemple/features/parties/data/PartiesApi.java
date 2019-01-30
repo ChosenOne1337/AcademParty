@@ -33,11 +33,11 @@ public interface PartiesApi {
     @DELETE("parties/{id}")
     Call<Success> deleteParty(@Path("id") String id);
 
-    @PATCH("parties/addperson/{id}")
-    Call<Party> addPerson(@Path("id") String id, @Body Person person);
+    @PATCH("parties/addperson/{partyId}")
+    Call<Party> addPerson(@Path("partyId") String partyId, @Body Person person);
 
-    @PATCH("parties/deleteperson/{partyId}/{personId}")
-    Call<Party> deletePerson(@Path("partyId") String partyId, @Path("personId") String personId);
+    @PATCH("parties/deleteperson/{partyId}")
+    Call<Party> deletePerson(@Path("partyId") String partyId, @Body Person person);
 
     @PATCH("parties/{id}")
     Call<Party> editParty(@Path("id") String id, @Body Party party);

@@ -43,13 +43,13 @@ public final class PartiesDataSourceImpl implements PartiesDataSource {
     }
 
     @Override
-    public void addPerson(String id, Person person, Carry<Party> carry) {
-        partiesApi.addPerson(id, person).enqueue(new DefaultCallback(carry));
+    public void addPerson(String partyId, Person person, Carry<Party> carry) {
+        partiesApi.addPerson(partyId, person).enqueue(new DefaultCallback(carry));
     }
 
     @Override
-    public void deletePerson(String partyId, String personId, Carry<Party> carry) {
-        partiesApi.deletePerson(partyId, personId).enqueue(new DefaultCallback(carry));
+    public void deletePerson(String partyId, Person person, Carry<Party> carry) {
+        partiesApi.deletePerson(partyId, person).enqueue(new DefaultCallback(carry));
     }
 
     @Override
