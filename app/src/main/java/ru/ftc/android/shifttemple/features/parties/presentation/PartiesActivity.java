@@ -27,7 +27,7 @@ import ru.ftc.android.shifttemple.features.parties.presentation.PartyAdapter.Par
 public final class PartiesActivity extends BaseActivity implements PartyListView {
 
     private ProgressBar progressBar;
-    private Button addPartyButton;
+    private Button createPartyButton;
     private RecyclerView recyclerView;
     private PartyAdapter adapter;
 
@@ -44,20 +44,20 @@ public final class PartiesActivity extends BaseActivity implements PartyListView
     private void initView() {
         progressBar = findViewById(R.id.parties_progress);
         recyclerView = findViewById(R.id.parties_recycle_view);
-        addPartyButton = findViewById(R.id.add_button);
+        createPartyButton = findViewById(R.id.add_button);
 
-        addPartyButton.setOnClickListener(new View.OnClickListener() {
+        createPartyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PartiesActivity.this, PartyInfoActivity.class);
-                startActivity(intent);
             }
         });
 
         adapter = new PartyAdapter(this, new PartyListener() {
             @Override
-            public void onPartyButtonClick(Party party) {
-                presenter.onPartySelected(party);
+            public void changeToInfoActivity(Party party) {
+                Intent intent = new Intent(PartiesActivity.this, PartyInfoActivity.class);
+                intent.putExtra("PartyId", party.getId());
+                startActivity(intent);
             }
         });
 

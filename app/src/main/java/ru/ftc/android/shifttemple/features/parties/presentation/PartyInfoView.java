@@ -1,5 +1,7 @@
 package ru.ftc.android.shifttemple.features.parties.presentation;
 
+import java.util.List;
+
 import ru.ftc.android.shifttemple.features.MvpView;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 

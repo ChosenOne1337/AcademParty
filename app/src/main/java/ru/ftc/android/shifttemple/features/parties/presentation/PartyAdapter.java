@@ -1,6 +1,7 @@
 package ru.ftc.android.shifttemple.features.parties.presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
@@ -29,18 +30,18 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
 
     private final LayoutInflater inflater;
     private final List<Party> parties = new ArrayList<>();
-    private final PartyListener selectPartyListener;
+    private final PartyListener changeToInfoActivity;
 
     PartyAdapter(Context context, PartyListener selectPartyListener) {
         inflater = LayoutInflater.from(context);
-        this.selectPartyListener = selectPartyListener;
+        this.changeToInfoActivity = selectPartyListener;
     }
 
     @NonNull
     @Override
     public PartyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View itemView = inflater.inflate(R.layout.party_item, parent, false);
-        return new PartyHolder(itemView, selectPartyListener);
+        return new PartyHolder(itemView, changeToInfoActivity);
     }
 
     @Override
@@ -83,8 +84,6 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
             partyNameView.setSelected(true);
             partyPlaceView.setSelected(true);
 
-            Picasso.get().load("https://pp.userapi.com/c831309/v831309065/1019d7/RBrSnJ2twhY.jpg").resize(120, 120).into(partyImageView);
-
             showPartyInformationButton = view.findViewById(R.id.view_button);
         }
 
@@ -93,16 +92,19 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
             partyPlaceView.setText(party.getPlace());
             partyDateView.setText(party.getDate());
 
+            Picasso.get().load(party.getPictureUrl()).resize(120, 120).into(partyImageView);
+
+
             showPartyInformationButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    partyListener.onPartyButtonClick(party);
+                    partyListener.changeToInfoActivity(party);
                 }
             });
         }
     }
 
     interface PartyListener {
-        void onPartyButtonClick(Party party);
+        void changeToInfoActivity(Party party);
     }
 }

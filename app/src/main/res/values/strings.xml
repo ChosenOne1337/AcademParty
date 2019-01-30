@@ -6,6 +6,8 @@
     <string name="party_place">Место:</string>
     <string name="party_time">Время:</string>
     <string name="party_manager">Организатор:</string>
-    <string name="party_members">Участники:</string>
+    <string name="party_members">Участники</string>
     <string name="Description">Описание</string>
+    <string name="separator">\\</string>
+    <string name="Delete">Удалить</string>
 </resources>
