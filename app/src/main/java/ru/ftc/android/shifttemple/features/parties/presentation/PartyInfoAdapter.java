@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import ru.ftc.android.shifttemple.R;
@@ -52,7 +53,7 @@ final class PartyInfoAdapter extends RecyclerView.Adapter<PartyInfoAdapter.Party
     class PartyInfoHolder extends RecyclerView.ViewHolder {
         private final TextView memberNameView;
 
-        private final Button deleteMemberButton;
+        private final ImageButton deleteMemberButton;
 
         private final PartyInfoListener partyInfoListener;
 

@@ -1,12 +1,17 @@
 package ru.ftc.android.shifttemple.features.parties.presentation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +24,13 @@ import ru.ftc.android.shifttemple.features.MvpView;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 
-public class PartyInfoActivity extends BaseActivity implements PartyInfoView{
+public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
     private PartyInfoPresenter presenter;
 
     private String partyId;
 
     private ImageView partyImageView;
+
     private TextView partyNameView;
     private TextView partyDateView;
     private TextView partyPlaceView;
@@ -35,6 +41,16 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView{
 
     private RecyclerView recyclerView;
     private PartyInfoAdapter adapter;
+
+    private EditText editParticipantName;
+
+    private LinearLayout addParticipantLayout;
+
+    private ImageButton addParticipantButton;
+    private ImageButton acceptParticipantButton;
+
+    private Button editPartyButton;
+    private Button deletePartyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +83,58 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView{
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        addParticipantLayout = findViewById(R.id.participant_edit_layout);
+
+        editParticipantName = findViewById(R.id.write_member);
+
+        addParticipantButton = findViewById(R.id.add_member);
+
+        addParticipantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addParticipantButton.setVisibility(View.INVISIBLE);
+                addParticipantLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        acceptParticipantButton = findViewById(R.id.accept_member);
+        acceptParticipantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addParticipantButton.setVisibility(View.VISIBLE);
+                addParticipantLayout.setVisibility(View.INVISIBLE);
+
+                Person person = new Person();
+                person.setName(editParticipantName.getText().toString());
+
+                presenter.addPerson(partyId, person);
+
+                editParticipantName.setText("");
+                hideKeyboard(v);
+            }
+        });
+
+        editPartyButton = findViewById(R.id.edit_party_button);
+        editPartyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+        deletePartyButton = findViewById(R.id.delete_party_button);
+        deletePartyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.deleteParty(partyId);
+
+                Intent intent = new Intent(PartyInfoActivity.this, PartiesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-        @Override
+    @Override
     protected MvpPresenter<PartyInfoView> getPresenter() {
         presenter = PresenterFactory.createPartyInfoPresenter(this);
         return presenter;
@@ -108,5 +173,12 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView{
         partyMaxMembersView.setText(party.getMaxPersons() + "");
 
         adapter.setParticipant(party.getParticipants());
+    }
+
+    public void hideKeyboard(View v) {
+        if (v != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+        }
     }
 }

@@ -9,5 +9,6 @@
     <string name="party_members">Участники</string>
     <string name="Description">Описание</string>
     <string name="separator">\\</string>
+    <string name="Change">Изменить</string>
     <string name="Delete">Удалить</string>
 </resources>

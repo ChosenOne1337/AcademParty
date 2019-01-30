@@ -139,7 +139,7 @@
                 android:layout_below="@+id/party_manager"
                 android:layout_centerHorizontal="true"
 
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
 
                 android:text="@string/Description"
                 android:textSize="25sp"
@@ -157,56 +157,61 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp" />
 
-            <TextView
-                android:id="@+id/party_members"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_below="@+id/party_real_description"
-
-                android:layout_centerHorizontal="true"
-
-                android:layout_marginTop="8dp"
-
-                android:text="@string/party_members"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/party_members_layout"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_below="@+id/party_members"
-
-                android:layout_centerHorizontal="true"
-
-                android:orientation="horizontal"
-
-                android:textSize="18sp">
-
-                <TextView
-                    android:id="@+id/party_current_members"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/separator"
+                <LinearLayout
+                    android:id="@+id/party_members_layout"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/separator" />
+                    android:layout_below="@+id/party_real_description"
+
+                    android:layout_centerHorizontal="true"
+
+                    android:gravity="center"
+
+                    android:orientation="vertical"
+
+                    android:textSize="18sp">
 
                 <TextView
-                    android:id="@+id/party_max_members"
+                    android:id="@+id/party_members"
 
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
 
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="@string/party_members" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+
+                    android:textSize="18sp">
+
+                    <TextView
+                        android:id="@+id/party_current_members"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/separator"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/separator" />
+
+                    <TextView
+                        android:id="@+id/party_max_members"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -218,6 +223,81 @@
                 android:layout_below = "@+id/party_members_layout"
                 android:layout_marginTop="8dp"
                 />
+
+            <ImageButton
+                android:id="@+id/add_member"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/parties_members_list"
+                android:layout_marginTop="13dp"
+
+                android:layout_centerHorizontal="true"
+
+                android:src="@mipmap/baseline_add_black_18" />
+
+            <LinearLayout
+                android:id="@+id/participant_edit_layout"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/parties_members_list"
+                android:layout_marginTop="8dp"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center_vertical"
+
+                android:orientation="horizontal"
+
+                android:visibility="invisible">
+
+                <EditText
+                    android:id="@+id/write_member"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+
+                    android:imeOptions="actionDone"/>
+
+                <ImageButton
+                    android:id="@+id/accept_member"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:src="@mipmap/baseline_done_black_18" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/participant_edit_layout"
+                android:layout_marginTop="16dp"
+
+                android:layout_centerHorizontal="true"
+
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/edit_party_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/Change"/>
+
+                <Button
+                    android:id="@+id/delete_party_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/Delete"/>
+            </LinearLayout>
+
+
+
         </RelativeLayout>
     </ScrollView>
     </RelativeLayout>
