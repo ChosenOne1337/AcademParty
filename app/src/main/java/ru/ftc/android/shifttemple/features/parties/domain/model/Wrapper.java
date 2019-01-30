@@ -7,13 +7,14 @@ package ru.ftc.android.shifttemple.features.parties.domain.model;
  */
 
 public class Wrapper<T> {
-
     private String status;
     private String message;
     private T data;
 
-    public Wrapper(T data) {
+    public Wrapper(T data, String status, String message) {
         this.data = data;
+        this.status = status;
+        this.message = message;
     }
 
     public String getStatus() {
