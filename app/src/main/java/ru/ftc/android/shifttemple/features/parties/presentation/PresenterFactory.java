@@ -45,4 +45,28 @@ final class PresenterFactory {
         return new PartyInfoPresenter(interactor);
     }
 
+    static EditPartyPresenter createEditPartyPresenter(Context context) {
+        final PartiesApi api = App.getRetrofitProvider(context)
+                .getRetrofit()
+                .create(PartiesApi.class);
+
+        final PartiesDataSource dataSource = new PartiesDataSourceImpl(api);
+        final PartiesRepository repository = new PartiesRepositoryImpl(dataSource);
+        final PartiesInteractor interactor = new PartiesInteractorImpl(repository);
+
+        return new EditPartyPresenter(interactor);
+    }
+
+    static PartyCreationPresenter createPartyCreationPresenter(Context context) {
+        final PartiesApi api = App.getRetrofitProvider(context)
+                .getRetrofit()
+                .create(PartiesApi.class);
+
+        final PartiesDataSource dataSource = new PartiesDataSourceImpl(api);
+        final PartiesRepository repository = new PartiesRepositoryImpl(dataSource);
+        final PartiesInteractor interactor = new PartiesInteractorImpl(repository);
+
+        return new PartyCreationPresenter(interactor);
+    }
+
 }
