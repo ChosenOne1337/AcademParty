@@ -25,7 +25,7 @@ public interface PartiesDataSource {
 
     void addPerson(String id, Person person, Carry<Party> carry);
 
-    void deletePerson(String id, Person person, Carry<Party> carry);
+    void deletePerson(String partyId, String personId, Carry<Party> carry);
 
     void editParty(String id, Party party, Carry<Party> carry);
 }

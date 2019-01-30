@@ -1,7 +1,10 @@
 package ru.ftc.android.shifttemple.features.parties.domain.model;
 
 public class Person {
+    private String id = "";
+
     private String name = "";
+
 
     public String getName() {
         return name;
@@ -9,5 +12,14 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

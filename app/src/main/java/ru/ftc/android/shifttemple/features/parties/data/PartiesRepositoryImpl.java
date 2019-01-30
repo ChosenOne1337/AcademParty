@@ -47,8 +47,8 @@ public final class PartiesRepositoryImpl implements PartiesRepository {
     }
 
     @Override
-    public void deletePerson(String id, Person person, Carry<Party> carry) {
-        dataSource.deletePerson(id, person, carry);
+    public void deletePerson(String partyId, String personId, Carry<Party> carry) {
+        dataSource.deletePerson(partyId, personId, carry);
     }
 
     @Override

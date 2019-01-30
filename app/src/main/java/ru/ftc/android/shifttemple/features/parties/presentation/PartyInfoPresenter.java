@@ -67,7 +67,7 @@ final class PartyInfoPresenter extends MvpPresenter<PartyInfoView> {
     }
 
     public void deletePerson(String partyId, Person person) {
-        interactor.deletePerson(partyId, person, new Carry<Party>() {
+        interactor.deletePerson(partyId, person.getId(), new Carry<Party>() {
 
             @Override
             public void onSuccess(Party result) {
