@@ -36,6 +36,9 @@ public interface PartiesApi {
     @PATCH("parties/addperson/{id}")
     Call<Party> addPerson(@Path("id") String id, @Body Person person);
 
+    @PATCH("parties/deleteperson/{id}")
+    Call<Party> deletePerson(@Path("id") String id, @Body Person person);
+
     @PATCH("parties/{id}")
     Call<Party> editParty(@Path("id") String id, @Body Party party);
 

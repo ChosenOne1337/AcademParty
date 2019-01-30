@@ -5,6 +5,7 @@ import java.util.List;
 import ru.ftc.android.shifttemple.features.MvpPresenter;
 import ru.ftc.android.shifttemple.features.parties.domain.PartiesInteractor;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
+import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
 import ru.ftc.android.shifttemple.network.Carry;
 
@@ -41,6 +42,40 @@ final class PartyInfoPresenter extends MvpPresenter<PartyInfoView> {
             @Override
             public void onSuccess(Success result) {
                 view.showSuccessMessage();
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                view.showError(throwable.getMessage());
+            }
+        });
+    }
+
+    public void addPerson(String partyId, String participantName) {
+        Person person = new Person();
+        person.setName(participantName);
+        interactor.addPerson(partyId, person, new Carry<Party>() {
+
+            @Override
+            public void onSuccess(Party result) {
+                view.showPartyInfo(result);
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                view.showError(throwable.getMessage());
+            }
+        });
+    }
+
+    public void deletePerson(String partyId, String participantName) {
+        Person person = new Person();
+        person.setName(participantName);
+        interactor.deletePerson(partyId, person, new Carry<Party>() {
+
+            @Override
+            public void onSuccess(Party result) {
+                view.showPartyInfo(result);
             }
 
             @Override
