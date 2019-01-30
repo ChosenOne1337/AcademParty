@@ -51,9 +51,7 @@ final class PartyInfoPresenter extends MvpPresenter<PartyInfoView> {
         });
     }
 
-    public void addPerson(String partyId, String participantName) {
-        Person person = new Person();
-        person.setName(participantName);
+    public void addPerson(String partyId, Person person) {
         interactor.addPerson(partyId, person, new Carry<Party>() {
 
             @Override
@@ -68,9 +66,7 @@ final class PartyInfoPresenter extends MvpPresenter<PartyInfoView> {
         });
     }
 
-    public void deletePerson(String partyId, String participantName) {
-        Person person = new Person();
-        person.setName(participantName);
+    public void deletePerson(String partyId, Person person) {
         interactor.deletePerson(partyId, person, new Carry<Party>() {
 
             @Override
