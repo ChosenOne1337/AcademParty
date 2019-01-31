@@ -94,7 +94,9 @@ public class CreatePartyActivity extends BaseActivity implements PartyCreationVi
                         e.printStackTrace();
                 }
                 party.setHost(managerEditor.getText().toString());
-                party.setMaxPersons(Integer.valueOf(maxParticipantsNumberEditor.getText().toString()));
+                if (!maxParticipantsNumberEditor.getText().toString().isEmpty()) {
+                    party.setMaxPersons(Integer.valueOf(maxParticipantsNumberEditor.getText().toString()));
+                }
                 party.setDescription(descriptionEditor.getText().toString());
 
                 presenter.onPartyCreated(party);
@@ -118,6 +120,7 @@ public class CreatePartyActivity extends BaseActivity implements PartyCreationVi
         Intent intent = new Intent(CreatePartyActivity.this, PartyInfoActivity.class);
         intent.putExtra("PartyId", party.getId());
         startActivity(intent);
+        finish();
     }
 
     @Override

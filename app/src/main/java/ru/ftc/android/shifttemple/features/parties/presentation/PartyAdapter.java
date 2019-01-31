@@ -97,7 +97,10 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
             partyPlaceView.setText(party.getPlace());
             partyDateView.setText(simpleDateFormat.format(partyDate));
 
-            Picasso.get().load(party.getPictureUrl()).resize(120, 120).into(partyImageView);
+
+            if(!party.getPictureUrl().isEmpty()) {
+                Picasso.get().load(party.getPictureUrl()).resize(120, 120).into(partyImageView);
+            }
 
 
             showPartyInformationButton.setOnClickListener(new View.OnClickListener() {

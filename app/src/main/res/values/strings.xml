@@ -12,4 +12,12 @@
     <string name="Delete">Удалить</string>
     <string name="MaxMembersNumber">Максимальное кол-во участников</string>
     <string name="Edit">Редактировать</string>
+    <string name="URL">URL изображения</string>
+
+    <string-array name="sorting_parties">
+        <item>Ближайшие события</item>
+        <item>Наиболее поздние события</item>
+        <item>Больше участников</item>
+        <item>Меньше участников</item>
+    </string-array>
 </resources>

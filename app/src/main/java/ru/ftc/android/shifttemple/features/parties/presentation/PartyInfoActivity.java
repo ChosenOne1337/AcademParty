@@ -111,7 +111,7 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
                 Person person = new Person();
                 person.setName(editParticipantName.getText().toString());
 
-                presenter.addPerson(partyId, person);
+               // presenter.addPerson(partyId, person);
 
                 editParticipantName.setText("");
                 hideKeyboard(v);
@@ -168,7 +168,9 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
 
     @Override
     public void showPartyInfo(Party party) {
-        Picasso.get().load(party.getPictureUrl()).into(partyImageView);
+        if (!party.getPictureUrl().isEmpty()) {
+            Picasso.get().load(party.getPictureUrl()).into(partyImageView);
+        }
 
         Date partyDate = new Date(party.getDate());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yy hh:mm");

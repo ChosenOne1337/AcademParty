@@ -2,7 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:orientation="vertical"
+
+    android:theme="@style/BlackTextTheme"
     android:padding="@dimen/offset_16">
 
 
@@ -22,6 +25,8 @@
         android:layout_marginStart="13dp"
 
         android:layout_alignTop="@+id/party_image_2"
+
+        android:textStyle="bold"
 
         android:text="@string/party_name" />
 
@@ -53,6 +58,8 @@
         android:layout_below="@+id/party_name_2"
         android:layout_marginTop="5dp"
 
+        android:textStyle="bold"
+
         android:text="@string/party_place" />
 
     <TextView
@@ -83,6 +90,8 @@
 
         android:layout_below="@+id/party_place_2"
         android:layout_marginTop="5dp"
+
+        android:textStyle="bold"
 
         android:text="@string/party_time" />
 

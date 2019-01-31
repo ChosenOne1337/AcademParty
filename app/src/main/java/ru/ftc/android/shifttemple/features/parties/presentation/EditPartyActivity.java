@@ -21,6 +21,7 @@ public class EditPartyActivity extends BaseActivity implements EditPartyView {
 
     private String partyId;
 
+    private EditText urlEditor;
     private EditText nameEditor;
     private EditText placeEditor;
     private EditText timeEditor;
@@ -41,6 +42,7 @@ public class EditPartyActivity extends BaseActivity implements EditPartyView {
     }
 
     private void initView() {
+        urlEditor = findViewById(R.id.party_edit_url_editor);
         nameEditor = findViewById(R.id.party_edit_name_editor);
         placeEditor = findViewById(R.id.party_edit_place_editor);
         timeEditor = findViewById(R.id.party_edit_time_editor);
@@ -57,6 +59,7 @@ public class EditPartyActivity extends BaseActivity implements EditPartyView {
 
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yy hh:mm");
 
+                party.setPictureUrl(urlEditor.getText().toString());
                 party.setName(nameEditor.getText().toString());
                 party.setPlace(placeEditor.getText().toString());
                 try {
@@ -93,7 +96,7 @@ public class EditPartyActivity extends BaseActivity implements EditPartyView {
     public void showPartyFields(Party party) {
         Date partyDate = new Date(party.getDate());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yy hh:mm");
-
+        urlEditor.setText(party.getPictureUrl());
         nameEditor.setText(party.getName());
         placeEditor.setText(party.getPlace());
         timeEditor.setText(simpleDateFormat.format(party.getDate()));
