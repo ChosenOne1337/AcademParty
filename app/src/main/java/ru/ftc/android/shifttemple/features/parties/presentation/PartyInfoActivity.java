@@ -125,6 +125,7 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
                 Intent intent = new Intent(PartyInfoActivity.this, EditPartyActivity.class);
                 intent.putExtra("PartyId", partyId);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -136,6 +137,7 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
 
                 Intent intent = new Intent(PartyInfoActivity.this, PartiesActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

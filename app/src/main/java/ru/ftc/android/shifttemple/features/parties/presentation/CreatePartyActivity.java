@@ -76,6 +76,7 @@ public class CreatePartyActivity extends BaseActivity implements PartyCreationVi
             }
 
         });
+
         managerEditor = findViewById(R.id.party_manager_editor);
         maxParticipantsNumberEditor = findViewById(R.id.party_max_participants_editor);
         descriptionEditor = findViewById(R.id.party_description_editor);

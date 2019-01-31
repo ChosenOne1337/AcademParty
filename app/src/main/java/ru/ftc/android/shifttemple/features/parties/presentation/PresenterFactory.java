@@ -69,4 +69,16 @@ final class PresenterFactory {
         return new PartyCreationPresenter(interactor);
     }
 
+    static AddPersonPresenter createAddPersonPresenter(Context context) {
+        final PartiesApi api = App.getRetrofitProvider(context)
+                .getRetrofit()
+                .create(PartiesApi.class);
+
+        final PartiesDataSource dataSource = new PartiesDataSourceImpl(api);
+        final PartiesRepository repository = new PartiesRepositoryImpl(dataSource);
+        final PartiesInteractor interactor = new PartiesInteractorImpl(repository);
+
+        return new AddPersonPresenter(interactor);
+    }
+
 }
