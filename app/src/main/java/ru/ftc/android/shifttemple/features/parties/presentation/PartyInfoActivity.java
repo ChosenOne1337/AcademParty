@@ -111,7 +111,7 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
                 Person person = new Person();
                 person.setName(editParticipantName.getText().toString());
 
-               // presenter.addPerson(partyId, person);
+                presenter.addPerson(partyId, person);
 
                 editParticipantName.setText("");
                 hideKeyboard(v);
