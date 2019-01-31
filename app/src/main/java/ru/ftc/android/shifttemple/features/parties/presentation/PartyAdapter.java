@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import ru.ftc.android.shifttemple.R;
@@ -88,9 +90,12 @@ final class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.PartyHolder> 
         }
 
         void bind(final Party party) {
+            Date partyDate = new Date(party.getDate());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yy hh:mm");
+
             partyNameView.setText(party.getName());
             partyPlaceView.setText(party.getPlace());
-            partyDateView.setText(party.getDate());
+            partyDateView.setText(simpleDateFormat.format(partyDate));
 
             Picasso.get().load(party.getPictureUrl()).resize(120, 120).into(partyImageView);
 

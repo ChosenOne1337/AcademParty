@@ -13,11 +13,11 @@ public final class Party {
     private String name = "";
     private String host = "";
     private String place = "";
-    private String date = "";
+    private Long date = null;
     private String pictureUrl = "";
     private String description = "";
-    private Integer maxPersons = 0;
-    private Integer currentPersons = 0;
+    private Integer maxPersons = null;
+    private Integer currentPersons = null;
     private List<Person> participants = null;
 
     public String getId() {
@@ -56,11 +56,11 @@ public final class Party {
     }
 
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

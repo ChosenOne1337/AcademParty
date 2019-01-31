@@ -1,5 +1,7 @@
 package ru.ftc.android.shifttemple.network;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
@@ -33,9 +35,11 @@ public final class DefaultCallback<T> implements Callback<T> {
         } else {
             String errorText;
             try {
-                String responseBody = response.raw().body().string();
+                String responseBody = response.errorBody().string();
+
                 errorText = parseError(responseBody);
             } catch (Throwable e) {
+                Log.d("OSHIBKA", "pppp", e);
                 errorText = response.message();
             }
             carry.onFailure(new FailedRequestException(errorText));

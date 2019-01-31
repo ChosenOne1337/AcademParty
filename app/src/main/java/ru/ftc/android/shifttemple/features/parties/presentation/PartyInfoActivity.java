@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import ru.ftc.android.shifttemple.R;
 import ru.ftc.android.shifttemple.features.BaseActivity;
 import ru.ftc.android.shifttemple.features.MvpPresenter;
@@ -119,6 +122,9 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
         editPartyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(PartyInfoActivity.this, EditPartyActivity.class);
+                intent.putExtra("PartyId", partyId);
+                startActivity(intent);
             }
         });
 
@@ -164,9 +170,12 @@ public class PartyInfoActivity extends BaseActivity implements PartyInfoView {
     public void showPartyInfo(Party party) {
         Picasso.get().load(party.getPictureUrl()).into(partyImageView);
 
+        Date partyDate = new Date(party.getDate());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yy hh:mm");
+
         partyNameView.setText(party.getName());
         partyPlaceView.setText(party.getPlace());
-        partyDateView.setText(party.getDate());
+        partyDateView.setText(simpleDateFormat.format(party.getDate()));
         partyManagerView.setText(party.getHost());
         partyDescriptionView.setText(party.getDescription());
         partyCurrentMembersView.setText(party.getCurrentPersons() + "");
