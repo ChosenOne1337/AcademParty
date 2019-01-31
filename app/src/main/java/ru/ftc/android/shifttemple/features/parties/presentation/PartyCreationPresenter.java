@@ -17,8 +17,8 @@ final class PartyCreationPresenter extends MvpPresenter<PartyCreationView> {
 
             @Override
             public void onSuccess(Party result) {
-                view.showCreatedParty(result);
                 view.showSuccessMessage();
+                view.showCreatedParty(result);
             }
 
             @Override

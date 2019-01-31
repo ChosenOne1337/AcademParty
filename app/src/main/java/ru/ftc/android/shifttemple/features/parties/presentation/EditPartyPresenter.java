@@ -41,6 +41,7 @@ final class EditPartyPresenter extends MvpPresenter<EditPartyView> {
             @Override
             public void onSuccess(Party result) {
                 view.showSuccessMessage();
+                view.showPartyInfo(result);
             }
 
             @Override

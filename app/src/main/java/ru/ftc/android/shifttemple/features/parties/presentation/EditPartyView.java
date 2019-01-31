@@ -8,6 +8,8 @@ public interface EditPartyView extends MvpView {
 
     void showPartyFields(Party party);
 
+    void showPartyInfo(Party party);
+
     void showError(String message);
 
     void showSuccessMessage();
