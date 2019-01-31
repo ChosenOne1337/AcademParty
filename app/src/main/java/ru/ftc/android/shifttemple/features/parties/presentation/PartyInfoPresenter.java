@@ -51,21 +51,6 @@ final class PartyInfoPresenter extends MvpPresenter<PartyInfoView> {
         });
     }
 
-    public void addPerson(String partyId, Person person) {
-        interactor.addPerson(partyId, person, new Carry<Party>() {
-
-            @Override
-            public void onSuccess(Party result) {
-                view.showPartyInfo(result);
-            }
-
-            @Override
-            public void onFailure(Throwable throwable) {
-                view.showError(throwable.getMessage());
-            }
-        });
-    }
-
     public void deletePerson(String partyId, Person person) {
         interactor.deletePerson(partyId, person, new Carry<Party>() {
 

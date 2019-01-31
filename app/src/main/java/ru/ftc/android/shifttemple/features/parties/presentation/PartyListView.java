@@ -3,6 +3,8 @@ package ru.ftc.android.shifttemple.features.parties.presentation;
 import java.util.List;
 
 import ru.ftc.android.shifttemple.features.MvpView;
+import ru.ftc.android.shifttemple.features.parties.domain.SortOrder;
+import ru.ftc.android.shifttemple.features.parties.domain.SortParameter;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 
 /**
@@ -20,5 +22,8 @@ interface PartyListView extends MvpView {
 
     void showError(String message);
 
+    SortParameter sortListBy();
+
+    SortOrder listSortOrder();
 }
 
