@@ -1,9 +1,13 @@
 package ru.ftc.android.shifttemple.network;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import ru.ftc.android.shifttemple.exception.FailedRequestException;
+import ru.ftc.android.shifttemple.features.parties.domain.model.ServerError;
 
 /**
  * Created: samokryl
@@ -14,6 +18,7 @@ import ru.ftc.android.shifttemple.exception.FailedRequestException;
 
 public final class DefaultCallback<T> implements Callback<T> {
 
+    private static Gson gson = new Gson();
     private final Carry<T> carry;
 
     public DefaultCallback(final Carry<T> carry) {
@@ -26,7 +31,15 @@ public final class DefaultCallback<T> implements Callback<T> {
         if (data != null) {
             carry.onSuccess(data);
         } else {
-            carry.onFailure(new FailedRequestException(response.message()));
+            String errorText;
+            try {
+                String responseBody = response.raw().body().string();
+                errorText = parseError(responseBody);
+            } catch (Throwable e) {
+                errorText = response.message();
+            }
+            carry.onFailure(new FailedRequestException(errorText));
+
         }
     }
 
@@ -35,4 +48,7 @@ public final class DefaultCallback<T> implements Callback<T> {
         carry.onFailure(t);
     }
 
+    private String parseError(String body) {
+        return gson.fromJson(body, ServerError.class).getMessage();
+    }
 }
