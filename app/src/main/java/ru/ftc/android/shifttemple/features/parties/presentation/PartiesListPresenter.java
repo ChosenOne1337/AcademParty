@@ -26,11 +26,11 @@ final class PartiesListPresenter extends MvpPresenter<PartyListView> {
 
     @Override
     protected void onViewReady() {
-        loadParties(SortParameter.BY_DATE, SortOrder.ASCENDING);
+        loadParties(view.sortListBy(), view.listSortOrder());
     }
 
     public void loadParties() {
-        view.showProgress();
+//        view.showProgress();
         interactor.loadParties(new Carry<List<Party>>() {
 
             @Override
@@ -48,7 +48,7 @@ final class PartiesListPresenter extends MvpPresenter<PartyListView> {
     }
 
     public void loadParties(SortParameter sortBy, SortOrder sortOrder) {
-        view.showProgress();
+//        view.showProgress();
         interactor.loadParties(sortBy, sortOrder, new Carry<List<Party>>() {
 
             @Override

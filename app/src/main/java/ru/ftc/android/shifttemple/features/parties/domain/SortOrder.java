@@ -6,9 +6,9 @@ public enum SortOrder {
     public String toString() {
         switch (this) {
             case ASCENDING:
-                return "more";
-            case DESCENDING:
                 return "less";
+            case DESCENDING:
+                return "more";
             default:
                 return name();
         }
