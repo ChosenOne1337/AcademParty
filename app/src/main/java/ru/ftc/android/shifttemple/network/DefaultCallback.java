@@ -33,7 +33,7 @@ public final class DefaultCallback<T> implements Callback<T> {
         } else {
             String errorText;
             try {
-                String responseBody = response.raw().body().string();
+                String responseBody = response.errorBody().string();
                 errorText = parseError(responseBody);
             } catch (Throwable e) {
                 errorText = response.message();

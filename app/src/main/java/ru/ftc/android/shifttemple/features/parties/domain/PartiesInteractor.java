@@ -17,6 +17,8 @@ public interface PartiesInteractor {
 
     void loadParties(Carry<List<Party>> carry);
 
+    void loadParties(SortParameter sortBy, SortOrder sortOrder, Carry<List<Party>> carry);
+
     void loadParty(String id, Carry<Party> carry);
 
     void createParty(Party party, Carry<Party> carry);

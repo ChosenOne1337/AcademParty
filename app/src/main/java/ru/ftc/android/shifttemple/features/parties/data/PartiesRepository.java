@@ -2,6 +2,8 @@ package ru.ftc.android.shifttemple.features.parties.data;
 
 import java.util.List;
 
+import ru.ftc.android.shifttemple.features.parties.domain.SortOrder;
+import ru.ftc.android.shifttemple.features.parties.domain.SortParameter;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
@@ -16,6 +18,8 @@ import ru.ftc.android.shifttemple.network.Carry;
 public interface PartiesRepository {
 
     void loadParties(Carry<List<Party>> carry);
+
+    void loadParties(SortParameter sortBy, SortOrder sortOrder, Carry<List<Party>> carry);
 
     void loadParty(String id, Carry<Party> carry);
 

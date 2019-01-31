@@ -1,6 +1,7 @@
 package ru.ftc.android.shifttemple.features.parties.data;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -9,6 +10,8 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PATCH;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
@@ -23,6 +26,9 @@ public interface PartiesApi {
 
     @GET("parties")
     Call<List<Party>> getPartyList();
+
+    @GET("parties")
+    Call<List<Party>> getPartyList(@Query("param") List<String> params);
 
     @GET("parties/{id}")
     Call<Party> getParty(@Path("id") String id);

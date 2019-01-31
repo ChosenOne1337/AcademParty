@@ -1,7 +1,10 @@
 package ru.ftc.android.shifttemple.features.parties.data;
 
+import java.util.Arrays;
 import java.util.List;
 
+import ru.ftc.android.shifttemple.features.parties.domain.SortOrder;
+import ru.ftc.android.shifttemple.features.parties.domain.SortParameter;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Person;
 import ru.ftc.android.shifttemple.features.parties.domain.model.Success;
@@ -25,6 +28,11 @@ public final class PartiesDataSourceImpl implements PartiesDataSource {
     @Override
     public void getParties(final Carry<List<Party>> carry) {
         partiesApi.getPartyList().enqueue(new DefaultCallback(carry));
+    }
+
+    public void getParties(SortParameter sortBy, SortOrder sortOrder, Carry<List<Party>> carry) {
+        List<String> params = Arrays.asList(sortBy.toString(), sortOrder.toString());
+        partiesApi.getPartyList(params).enqueue(new DefaultCallback(carry));
     }
 
     @Override

@@ -28,6 +28,11 @@ public final class PartiesInteractorImpl implements PartiesInteractor {
     }
 
     @Override
+    public void loadParties(SortParameter sortBy, SortOrder sortOrder, Carry<List<Party>> carry) {
+        repository.loadParties(sortBy, sortOrder, carry);
+    }
+
+    @Override
     public void loadParty(String id, Carry<Party> carry) {
         repository.loadParty(id, carry);
     }
