@@ -1,20 +1,8 @@
 package ru.ftc.android.shifttemple.features.parties.domain.model;
 
-import java.util.List;
-
-public class Person {
+public class Item {
     private String name = "";
-    private List<Item> items = null;
-
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
+    private Integer amount = null;
 
     public String getName() {
         return name;
@@ -24,4 +12,11 @@ public class Person {
         this.name = name;
     }
 
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
 }
