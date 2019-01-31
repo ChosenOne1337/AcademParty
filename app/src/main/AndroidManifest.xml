@@ -18,7 +18,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".features.parties.presentation.CreatePartyActivity">
+        </activity>
+
         <activity android:name=".features.parties.presentation.PartyInfoActivity">
+        </activity>
+
+        <activity android:name=".features.parties.presentation.EditPartyActivity">
         </activity>
 
     </application>

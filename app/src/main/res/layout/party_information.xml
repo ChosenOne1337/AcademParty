@@ -259,6 +259,8 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
 
+                    android:maxLines="1"
+
                     android:imeOptions="actionDone"/>
 
                 <ImageButton
@@ -280,18 +282,26 @@
 
                 android:layout_centerHorizontal="true"
 
-                android:orientation="horizontal">
+                android:gravity="center"
+
+                android:orientation="vertical">
                 <Button
                     android:id="@+id/edit_party_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/Change"/>
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/colorAccent"
+
+                    android:text="@string/Edit"/>
 
                 <Button
                     android:id="@+id/delete_party_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/colorAccent"
 
                     android:text="@string/Delete"/>
             </LinearLayout>

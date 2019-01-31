@@ -26,7 +26,7 @@ final class PartiesListPresenter extends MvpPresenter<PartyListView> {
 
     @Override
     protected void onViewReady() {
-        loadParties();
+        loadParties(SortParameter.BY_DATE, SortOrder.ASCENDING);
     }
 
     public void loadParties() {

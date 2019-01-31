@@ -49,8 +49,8 @@ public final class PartiesActivity extends BaseActivity implements PartyListView
         createPartyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(PartiesActivity.this, CreatePartyActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(PartiesActivity.this, CreatePartyActivity.class);
+                startActivity(intent);
             }
         });
 
