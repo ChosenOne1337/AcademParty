@@ -13,12 +13,32 @@ final class AddPersonPresenter extends MvpPresenter<AddPersonView> {
         this.interactor = interactor;
     }
 
+    @Override
+    protected void onViewReady() {
+        loadParty(view.getPartyId());
+    }
+
     public void addPerson(String partyId, Person person) {
         interactor.addPerson(partyId, person, new Carry<Party>() {
 
             @Override
             public void onSuccess(Party result) {
                 view.showPartyInfo(result);
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                view.showError(throwable.getMessage());
+            }
+        });
+    }
+
+    private void loadParty(String partyId) {
+        interactor.loadParty(partyId, new Carry<Party>() {
+
+            @Override
+            public void onSuccess(Party result) {
+                view.showEditFields(result);
             }
 
             @Override

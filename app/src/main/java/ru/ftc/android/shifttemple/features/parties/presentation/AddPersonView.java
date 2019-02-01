@@ -6,6 +6,8 @@ import ru.ftc.android.shifttemple.features.parties.domain.model.Party;
 public interface AddPersonView extends MvpView {
     String getPartyId();
 
+    void showEditFields(Party party);
+
     void showPartyInfo(Party party);
 
     void showError(String message);
